@@ -91,8 +91,8 @@ const Page = () => {
                     badgeColor="#43b581"
                     title="👤 New user signed up"
                     content={{
-                      name: "Mateo Ortiz",
-                      email: "m.ortiz19@gmail.com",
+                      name: "Muhammad Ahmad",
+                      email: "muhammad.ahmad@gmail.com",
                     }}
                   />
                   <DiscordMessage
@@ -105,7 +105,7 @@ const Page = () => {
                     title="💰 Payment received"
                     content={{
                       amount: "$49.00",
-                      email: "zoe.martinez2001@email.com",
+                      email: "amna.ahmad@gmail.com",
                       plan: "PRO",
                     }}
                   />
