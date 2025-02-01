@@ -17,7 +17,7 @@ const Page = () => {
     category: "sale",
     fields: {
       plan: "PRO",
-      email: "zoe.martinez2001@email.com",
+      email: "amnawahab2605@gmail.com",
       amount: 49.00
     }
   }),
@@ -316,10 +316,10 @@ const Page = () => {
                 />
                 <div className="flex flex-col items-center sm:items-start">
                   <p className="font-semibold flex items-center">
-                    Freya Larsson
+                    Amna Ahmad
                     <Icons.verificationBadge className="size-4 inline-block ml-1.5" />
                   </p>
-                  <p className="text-sm text-gray-600">@itsfreya</p>
+                  <p className="text-sm text-gray-600">@amnawahab_2605</p>
                 </div>
               </div>
             </div>
@@ -350,10 +350,10 @@ const Page = () => {
                 />
                 <div className="flex flex-col items-center sm:items-start">
                   <p className="font-semibold flex items-center">
-                    Kai Durant
+                    Abdul Mateen
                     <Icons.verificationBadge className="size-4 inline-block ml-1.5" />
                   </p>
-                  <p className="text-sm text-gray-600">@kdurant_</p>
+                  <p className="text-sm text-gray-600">@abdulmateen_269</p>
                 </div>
               </div>
             </div>
