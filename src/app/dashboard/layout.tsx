@@ -46,9 +46,12 @@ const Sidebar = ({ onClose }: { onClose?: () => void }) => {
   return (
     <div className="space-y-4 md:space-y-6 relative z-20 flex flex-col h-full">
       {/* logo */}
-      <p className="hidden sm:block text-lg/7 font-semibold text-brand-900">
+      <Link
+        href="/"
+        className="hidden sm:block text-lg/7 font-semibold text-brand-900"
+      >
         Pulse<span className="text-brand-700">Panda</span>
-      </p>
+      </Link>
 
       {/* navigation items */}
       <div className="flex-grow">
@@ -108,9 +111,9 @@ const Layout = ({ children }: PropsWithChildren) => {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* mobile header */}
         <div className="md:hidden flex items-center justify-between p-4 border-b border-gray-200">
-          <p className="text-lg/7 font-semibold text-brand-900">
+          <Link href="/" className="text-lg/7 font-semibold text-brand-900">
             Pulse<span className="text-brand-700">Panda</span>
-          </p>
+          </Link>
           <button
             onClick={() => setIsDrawerOpen(true)}
             className="text-gray-500 hover:text-gray-600"
@@ -134,9 +137,9 @@ const Layout = ({ children }: PropsWithChildren) => {
           setShowModal={setIsDrawerOpen}
         >
           <div className="flex justify-between items-center mb-4">
-            <p className="text-lg/7 font-semibold text-brand-900">
+            <Link href="/" className="text-lg/7 font-semibold text-brand-900">
               Pulse<span className="text-brand-700">Panda</span>
-            </p>
+            </Link>
             <button
               aria-label="Close modal"
               onClick={() => setIsDrawerOpen(false)}
