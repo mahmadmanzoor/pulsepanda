@@ -8,7 +8,7 @@ import { z } from "zod"
 const REQUEST_VALIDATOR = z
   .object({
     category: CATEGORY_NAME_VALIDATOR,
-    fields: z.record(z.string().or(z.number()).or(z.boolean())).optional(),
+    fields: z.record(z.string(), z.string().or(z.number()).or(z.boolean())).optional(),
     description: z.string().optional(),
   })
   .strict()
