@@ -85,15 +85,24 @@ export const router = <T extends Record<string, OperationType<any, any>>>(
               }
             }
 
-            return operation.handler({ c, ctx, input })
+            // TypedResponse is a type-only brand; handlers return real Responses at runtime
+            return operation.handler({ c, ctx, input }) as unknown as Promise<Response>
           }
         )
       } else {
-        route.get(path, ...operationMiddlewares, (c) => {
+        const handler: MiddlewareHandler = async (c) => {
           const ctx = c.get("__middleware_output") || {}
 
-          return operation.handler({ c, ctx, input: undefined })
-        })
+          return operation.handler({
+            c,
+            ctx,
+            input: undefined,
+          }) as unknown as Promise<Response>
+        }
+
+        // pass the first handler explicitly so Hono's (path, handler, ...handlers) overload matches
+        const handlers = [...operationMiddlewares, handler]
+        route.get(path, handlers[0], ...handlers.slice(1))
       }
     } else if (operation.type === "mutation") {
       if (operation.schema) {
@@ -119,15 +128,24 @@ export const router = <T extends Record<string, OperationType<any, any>>>(
               }
             }
 
-            return operation.handler({ c, ctx, input })
+            // TypedResponse is a type-only brand; handlers return real Responses at runtime
+            return operation.handler({ c, ctx, input }) as unknown as Promise<Response>
           }
         )
       } else {
-        route.post(path, ...operationMiddlewares, (c) => {
+        const handler: MiddlewareHandler = async (c) => {
           const ctx = c.get("__middleware_output") || {}
 
-          return operation.handler({ c, ctx, input: undefined })
-        })
+          return operation.handler({
+            c,
+            ctx,
+            input: undefined,
+          }) as unknown as Promise<Response>
+        }
+
+        // pass the first handler explicitly so Hono's (path, handler, ...handlers) overload matches
+        const handlers = [...operationMiddlewares, handler]
+        route.post(path, handlers[0], ...handlers.slice(1))
       }
     }
   })
